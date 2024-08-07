@@ -5,10 +5,11 @@ import { stripe } from './stripe';
 import { toDateTime } from './helpers';
 import { Database } from '../../types_db';
 import { Price, Product } from '../../types';
-
-export const supabaseAdmin = createClient<Database>(
+console.log('Supabase URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
+console.log('Supabase Key:', process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+export const supabaseAdmin = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-    process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 );
 
 const upsertProductRecord = async (product: Stripe.Product) => {

@@ -6,9 +6,11 @@ import arrowLeft from '@/../public/images/header/arrowLeft.svg'
 import Image from 'next/image'
 import { useUser } from '@supabase/auth-helpers-react'
 import ResturantCard from './component/resturantCard'
+import { getResturant } from '../api/resturnat'
 
-export default function Page() {
-
+export default  async function Page() {
+    const data = await getResturant()
+    console.log(data)
     // const handelClick=()=>{
     //     console.log('kdkskd')
     // }
@@ -40,7 +42,7 @@ export default function Page() {
           <div className="text-[2.5vw] font-fontBold ">Choose your</div>
           <div className="text-[4vw] font-fontBold  bg-gradient-to-r from-blue-600 via-gray-500 to-slate-400  text-transparent bg-clip-text">Restaurant</div>
         </div>
-       <ResturantCard/>
+       <ResturantCard data={data}/>
       </div>
     </div>
   )

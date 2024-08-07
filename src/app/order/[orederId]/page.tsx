@@ -11,6 +11,8 @@ import arrowRghit from '@/../public/images/header/arrow-left.svg'
 import Image from 'next/image'
 import { useUser } from '@supabase/auth-helpers-react'
 import Header from './component/header'
+import Link from 'next/link'
+import OptionsCards from './component/OptionsCards'
 
 export default function Page() {
 
@@ -63,31 +65,8 @@ export default function Page() {
         </div>
 
 
+    <OptionsCards/>
 
-        <div className="flex  items-center gap-10">
-        <div className="flex  items-center cursor-pointer flex-col justify-center gap-3  w-[200px] h-[200px]  bg-slate-400 rounded-lg"
-         style={{
-            background: `url(/images/order/dots-green.png), rgb(0, 220, 199)`,
-            backgroundSize: 'cover', // Adjust as needed
-            backgroundPosition: 'center' // Adjust as needed
-          }}>
-
-            <Image src={takeInImage} alt="takeInImage" className='h-[45%] w-[45%]'/>
-            <span className="font-fontBold text-white text-[1.2vw]">Sur Place</span>
-
-        </div>
-        <div className="flex  items-center cursor-pointer flex-col justify-center gap-3  w-[200px] h-[200px]   rounded-lg "
-        style={{
-            background: `url(/images/order/dots-pink.png), rgb(250, 74, 128)`,
-            backgroundSize: 'cover', // Adjust as needed
-            backgroundPosition: 'center' // Adjust as needed
-          }}
-          >
-        <Image src={takeOutImage} alt="takeOutImage" className='h-[45%] w-[45%]'/>
-            <span className="font-fontBold  text-white text-[1.2vw]"> A emporter</span>
-
-        </div>
-        </div>
       </div>
     </div>
   )
