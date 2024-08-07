@@ -4,12 +4,16 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import SupabaseProvider from "@/providers/SupabaseProvider";
 import UserProvider from "@/providers/UserProvider";
+import localFont from 'next/font/local'
 
 const font = Plus_Jakarta_Sans({ subsets: ["latin"] });
-
+const manrope = localFont({
+    src:"./../../public/font/Block Berthold Regular.ttf",
+    variable: '--font-bold',
+   })
 export const metadata: Metadata = {
-	title: "AI2SaaS",
-	description: "Create your own AI SaaS",
+	title: "Otentik",
+	description: "Otentik Niort",
 };
 
 export default async function RootLayout({
@@ -18,8 +22,8 @@ export default async function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
-			<body className={font.className}>
+		<html lang="en"  className="h-full" >
+			<body className={`${font.className} ${manrope.variable} `} style={{height:"100%"}}>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="light"
