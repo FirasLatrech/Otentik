@@ -19,3 +19,20 @@ export const getResturant = async function() {
         return [];
     }
 }
+export const getResturantById = async function(id :string) {
+    try {
+        const { data, error } = await supabaseAdmin.from('restaurants').select('*').eq('id' ,id);
+
+        if (error) {
+            console.error('Error fetching restaurants:', error.message);
+            // Handle the error as needed, for example, by returning an empty array or throwing an error
+            return [];
+        }
+
+        return data;
+    } catch (err :any) {
+        console.error('Unexpected error:', err.message);
+        // Handle the unexpected error as needed
+        return [];
+    }
+}
